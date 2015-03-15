@@ -1,29 +1,33 @@
-// Coundown
+var johnny = require('johnny-five');
 
-// var count =10
-// function next() {
-// 	count -= 1
-// 	console.log(count);
-// 	if (count === 0) {
-// 		console.log('BLAST OFF');
-// 		return;
-// 	}
-// 	setTimeout(next, 1000)
-// }
-// console.log(count)
-// setTimeout(next, 1000)
+var board = new johnny.Board({ repl: false });
 
+board.on('ready', function() {
+	var pin = new johnny.Pin(10); 
+	console.log('board ready');
 
-var five = require("johnny-five"),
-    board = new five.Board({repl: false});
+	var count = 10;
 
-board.on("ready", function() {
-	var pin = new five.Pin(10); 
-	console.log('board ready')
+	function tick() {
+	    count = count - 1;
 
-  	pin.high()
+	    if (count === 0) { 
+	        console.log('BLASTOFF!');
+	        pin.high();
+	        return;
+	    }
+
+	    console.log(count);
+	    setTimeout(tick, 1000);
+	}
+
+	console.log(count);
+	
+	setTimeout(tick, 1000)
 
 	process.on('exit', function(){
 		pin.low()
 	})
-});
+
+})
+
