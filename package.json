@@ -1,12 +1,12 @@
 {
   "name": "rockets",
   "version": "1.0.0",
-  "description": "",
+  "description": "Launch rockets",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Jacob Lowe & Kevin Chandler",
   "license": "ISC",
   "dependencies": {
     "johnny-five": "^0.8.47"
