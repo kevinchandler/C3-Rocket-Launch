@@ -1,41 +1,17 @@
-***Mac:***
-  - [ ] Nodejs http://nodejs.org
-  
-  
-  
-***Windows:***
-  - [ ] Nodejs http://nodejs.org
-  - [ ] Chocately (https://chocolatey.org)
-  - [ ] Python
-  
-  
-***Code:***
-```
-var count = 10
-function next() {
-	count -= 1
-	console.log(count);
-	if (count === 0) {
-		console.log('BLAST OFF');
-		return;
-	}
-	setTimeout(next, 1000)
-}
-console.log(count)
-setTimeout(next, 1000)
+***What you'll need***
+  [Nodejs](http://nodejs.org)
+  [Python 2.7.x (Windows)](https://www.python.org/downloads/windows)
+  Arduino microcontroller board. You can get one at Radio Shack for ~$35
+  Bread board
+  A [rocket](http://www.estesrockets.com/rockets) an a few [engines](http://www.estesrockets.com/rockets/engines/standard/1614-c6-5)
+  9V batteries
+
+1. Connect wires as seen in schematic
+1. Open Terminal/Command Prompt
+2. cd /dir/to/rockets
+3. npm install 
+4. node launch.js
+5. blastoff
 
 
-var five = require("johnny-five"),
-    board = new five.Board({repl: false});
-
-board.on("ready", function() {
-	var pin = new five.Pin(10); 
-	console.log('board ready')
-
-  	pin.high()
-
-	process.on('exit', function(){
-		pin.low()
-	})
-});
-```
+![Schematic](schematic.png)
